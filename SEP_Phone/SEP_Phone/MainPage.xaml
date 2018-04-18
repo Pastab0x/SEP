@@ -8,8 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView HorizontalAlignment="Left" Height="467" Margin="59,163,0,0" VerticalAlignment="Top" Width="246"/>
+        <ListView HorizontalAlignment="Left" Height="363" Margin="59,163,0,0" VerticalAlignment="Top" Width="246"/>
         <Button Content="Push" HorizontalAlignment="Left" Margin="144,126,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="-1.18,0.29"/>
+        <TextBox x:Name="OnlineConnexion" HorizontalAlignment="Left" Margin="59,37,0,0" Text="Connected to :" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.468"/>
+        <TextBox x:Name="BluetoothConnexion" HorizontalAlignment="Left" Margin="59,74,0,0" Text="Connected to :" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.468"/>
+        <TextBox x:Name="ErrorPrint" HorizontalAlignment="Left" Margin="59,560,0,0" Text="" VerticalAlignment="Top" Height="53" Width="246"/>
 
     </Grid>
 </Page>

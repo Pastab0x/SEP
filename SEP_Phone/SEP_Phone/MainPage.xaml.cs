@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -27,9 +28,28 @@ namespace SEP_Phone
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            Geolocator geolocator = new Geolocator();
+            geolocator.DesiredAccuracyInMeters = 5;
+            double latitude = -1.0;
+            double longitude = -1.0;
+            double altitude = -1.0;
+            try
+            {
+                Geoposition geoposition = await geolocator.GetGeopositionAsync(TimeSpan.FromMinutes(5), TimeSpan.FromSeconds(10));
+                latitude = geoposition.Coordinate.Point.Position.Latitude;
+                longitude = geoposition.Coordinate.Point.Position.Longitude;
+                altitude = geoposition.Coordinate.Point.Position.Altitude;
+                Coordonnee cgps = new Coordonnee(latitude, longitude, altitude);
+                CoordConversion coordConversion = new CoordConversion(cgps,altitude);
+                ErrorPrint.Text = latitude.ToString()+"|"+longitude.ToString()+"|"+altitude.ToString();
 
+            }
+            catch (UnauthorizedAccessException)
+            {
+                ErrorPrint.Text = "Location service is not activated";
+            }
         }
     }
 }
