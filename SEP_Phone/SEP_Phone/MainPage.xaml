@@ -8,6 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView HorizontalAlignment="Left" Height="467" Margin="59,163,0,0" VerticalAlignment="Top" Width="246"/>
+        <Button Content="Push" HorizontalAlignment="Left" Margin="144,126,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="-1.18,0.29"/>
 
     </Grid>
 </Page>
