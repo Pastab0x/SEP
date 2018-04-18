@@ -2,11 +2,11 @@
 {
     internal class CoordConversion
     {
-        Coordonnee vecteur;
+        private Coordonnee vecteur;
 
         public CoordConversion(Coordonnee cgps, Coordonnee cgps_changed)
         {
-            this.vecteur.getX() = cgps_changed.x - cgps.x;
+            this.vecteur.setX(cgps_changed.getX() - cgps.getX());
         }
 
     }
