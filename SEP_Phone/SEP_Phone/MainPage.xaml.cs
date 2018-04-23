@@ -35,6 +35,7 @@ namespace SEP_Phone
             double latitude = -1.0;
             double longitude = -1.0;
             double altitude = -1.0;
+
             try
             {
                 Geoposition geoposition = await geolocator.GetGeopositionAsync(TimeSpan.FromMinutes(5), TimeSpan.FromSeconds(10));
@@ -42,7 +43,7 @@ namespace SEP_Phone
                 longitude = geoposition.Coordinate.Point.Position.Longitude;
                 altitude = geoposition.Coordinate.Point.Position.Altitude;
                 Coordonnee cgps = new Coordonnee(latitude, longitude, altitude);
-                CoordConversion coordConversion = new CoordConversion(cgps,altitude);
+                CoordConversion coordConversion = new CoordConversion(cgps);
                 ErrorPrint.Text = latitude.ToString()+"|"+longitude.ToString()+"|"+altitude.ToString();
 
             }
